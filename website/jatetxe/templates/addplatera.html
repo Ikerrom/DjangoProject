@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatetxe</title>
+</head>
+<body>
+    <h1>Sortu Platera</h1>
+    <form action="addplateratodb/" method="post">
+        <div style="display:flex; flex-direction:column;">
+            <label for="inputname">Izena</label>
+            <input type="text" id="inputname" placeholder="Izena" name="name">
+        
+            <label for="inputdesc">Desk</label>
+            <input type="text" id="inputdesc" placeholder="Deskripzioa" name="desc">
+
+            <label for="inputprice">Prize</label>
+            <input type="number" step="0.01" id="inputprice" placeholder="Prezioa" name="price">
+
+            <label for="inputurl">Argazkia</label>
+            <input type="text" id="inputurl" placeholder="https://image.jpg" name="photo">
+
+            <label for="selectsukaldaria">Sukaldaria</label>
+
+            <select id="selectsukaldaria" name="sukaldari">
+                {% for x in mysukaldari %}
+                    <option value="{{ x.id }}" >{{ x.firstname }} {{ x.lastname }}</option>
+                {% endfor %}
+            </select>
+
+            <a href="/addsukaldari">Ez dago?</a>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <br>
+    <a href="../platerak/">BACK</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatetxe</title>
+</head>
+<body>
+    <h1>Platerak</h1>
+
+    <table border="1">
+        {% for x in myplatera %}
+        <tr>
+            <td>{{ x.name }}</td>
+            <td>{{ x.desc }}</td>
+            <td>{{ x.price }}</td>
+            <td>{{ x.sukaldari.firstname }} {{ x.sukaldari.lastname }}</td>
+            <td><img style= "width:10vh;" src= "{{ x.photo }}"></td>
+            <td><a href="/delplatera/{{x.id}}">DELETE</a></td>
+            <td><a href="/updateplatera/{{x.id}}">UPDATE</a></td>
+            <td><a href="/platerak/{{x.price}}">Add to cart</a></td>
+        </tr>
+        {% endfor %}
+        <a href="/addplatera">ADD</a>
+    </table> 
+    <br>
+    <a href="reset/">Reset Total</a>
+    <p>TOTAL: {{newprice.totalprice}} €</p>
+    <br>
+    <a href="/">BACK</a>
+</body>
+</html>
